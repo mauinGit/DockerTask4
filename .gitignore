@@ -1,0 +1,26 @@
+# Environment
+.env
+
+# Go
+*.exe
+*.test
+*.out
+
+# Docker
+docker-compose.yml
+Dockerfile
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
