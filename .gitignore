@@ -6,10 +6,6 @@
 *.test
 *.out
 
-# Docker
-docker-compose.yml
-Dockerfile
-
 # Logs
 *.log
 

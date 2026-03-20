@@ -1,0 +1,33 @@
+services:
+  database:
+    image: mysql:9.6.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
+  system:
+    build: .
+    container_name: go_app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    env_file:
+      - .env
+    networks:
+      - app-network
+
+volumes:
+  mysql_data:
+
+networks:
+  app-network:
+    driver: bridge
