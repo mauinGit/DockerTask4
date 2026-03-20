@@ -1,13 +1,15 @@
 package main
 
-import "github.com/gofiber/fiber/v3"
+import (
+	"week4/config"
+	"week4/databases"
+
+	"github.com/gofiber/fiber/v3"
+)
 
 func main() {
-    app := fiber.New()
-
-    app.Get("/", func(c fiber.Ctx) error {
-        return c.SendString("Hello, World!")
-    })
-
-    app.Listen(":3000")
+	config.ENVInit()
+	databases.DBInit()
+	app := fiber.New()
+	app.Listen(":3000")
 }
