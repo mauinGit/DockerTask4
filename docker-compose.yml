@@ -1,17 +1,24 @@
 services:
   mysql:
-    image: mysql:9.6.0
+    image: mysql:8.0
     container_name: mysql_db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: week4123
     ports:
        - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
       - app-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   system:
     build: .
@@ -19,7 +26,8 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     env_file:
       - .env
     networks:
