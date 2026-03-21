@@ -6,6 +6,6 @@ import (
 	"github.com/gofiber/fiber/v3"
 )
 
-func routesNote(api fiber.Router) {
+func RoutesNote(api fiber.Router) {
 	api.Post("/note", controllers.CreateNote)
 }
