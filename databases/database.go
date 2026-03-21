@@ -3,6 +3,7 @@ package databases
 import (
 	"fmt"
 	"os"
+	"week4/models"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -24,4 +25,11 @@ func DBInit() {
 	}
 	fmt.Println("Database Connection Succesfully")
 	DB = db
+}
+
+func DBMigrate() {
+	if err := DB.AutoMigrate(&models.Note{}); err != nil {
+		panic("Database Migration Failed")
+	}
+	fmt.Println("Database Migration Succesfully")
 }
