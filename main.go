@@ -12,6 +12,7 @@ func main() {
 	config.ENVInit()
 	time.Sleep(10 * time.Second)
 	databases.DBInit()
+	databases.DBMigrate()
 	app := fiber.New()
 	app.Listen(":3000")
 }
