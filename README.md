@@ -25,19 +25,19 @@ Fitur utama:
 DockerTask4/
 │
 ├── config/
-│ └── env.go
+│└── env.go
 │
 ├── controllers/
-│ └── note.go
+│└── note.go
 │
 ├── databases/
-│ └── database.go
+│└── database.go
 │
 ├── models/
-│ └── note.go
+│└── note.go
 │
 ├── routes/
-│ └── note_routes.go
+│└── note_routes.go
 │
 ├── .env.example
 ├── .gitignore
@@ -86,9 +86,9 @@ APP_PORT=3000
 pada file docker-compose.yml pada bagian
 ```bash
     ports:
-       - "3307:3306"
+       - "${YOUR_DB_PORT}:3306"
 ```
-ubah angka 3307 menjadi angka ports yang biasanya kamu gunakan
+ubah ${YOUR_DB_PORT} menjadi angka ports yang biasanya kamu gunakan
 
 - Jalankan Docker Compose
 ```bash
