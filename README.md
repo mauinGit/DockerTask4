@@ -22,6 +22,7 @@ Fitur utama:
 ---
 
 # 📁 Struktur Project
+```bash
 DockerTask4/
 │
 ├── config/
@@ -47,6 +48,7 @@ DockerTask4/
 ├── go.sum
 ├── main.go # Entry point aplikasi
 └── README.md
+```
 
 ---
 
